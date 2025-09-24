@@ -8,10 +8,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        sh '''
-           git clone https://github.com/saquib282/Jenkins-Zero-To-Hero.git .
-           git checkout main
-         '''
+        sh 'git checkout main'
       }
     }
     stage('Build and Test') {
