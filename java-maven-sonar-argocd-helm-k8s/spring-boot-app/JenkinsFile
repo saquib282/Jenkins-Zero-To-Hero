@@ -52,9 +52,9 @@ pipeline {
         steps {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
                 sh '''
-                    ls -a
-                    cd ${WORKSPACE}
-                    ls -a
+                    ls -al
+                    cd ${WORKSPACE}/Jenkins-Zero-To-Hero
+                    ls -al
                     git config user.email "saquib.xyz@gmail.com"
                     git config user.name "mohd saquib"
                     BUILD_NUMBER=${BUILD_NUMBER}
