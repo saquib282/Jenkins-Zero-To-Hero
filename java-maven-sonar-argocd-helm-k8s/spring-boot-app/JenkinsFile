@@ -2,16 +2,13 @@ pipeline {
   agent {
     docker {
       image 'royalsaquib/maven-java17-docker-agent:v1'
-      args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
+      args '--user root -v /var/run/docker.sock:/var/run/docker.sock -v $WORKSPACE:$WORKSPACE' // mount Docker socket to access the host's Docker daemon
     }
   }
   stages {
     stage('Checkout') {
       steps {
-        sh '''
-        git clone https://github.com/saquib282/Jenkins-Zero-To-Hero.git
-        git checkout main
-        '''
+        sh 'echo passed'
       }
     }
     stage('Build and Test') {
